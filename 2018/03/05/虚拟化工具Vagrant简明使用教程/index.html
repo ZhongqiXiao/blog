@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.5" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.5">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.5">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.5">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.5" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.5',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+<meta name="description" content="虚拟化工具Vagrant简明使用教程简单介绍如果你有一台物理服务器，现在需要租出去，你会怎么做呢？直接出租出去？当然是变成多台，然后分别出租出去呀，怎么做呢？答案是：虚拟化！ 早年服务器的租用费用很高，而现在，一台云服务器，学生都可以以白菜价拥有了，当你拥有自己的VPS，可以在上面搭建网站，ftp服务器，或者是自建的云盘,如果是国外的vps，你还可以自建一个梯子，连接外面的世界。 一台物理服务器，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="虚拟化工具Vagrant简明使用教程简单介绍如果你有一台物理服务器，现在需要租出去，你会怎么做呢？直接出租出去？当然是变成多台，然后分别出租出去呀，怎么做呢？答案是：虚拟化！ 早年服务器的租用费用很高，而现在，一台云服务器，学生都可以以白菜价拥有了，当你拥有自己的VPS，可以在上面搭建网站，ftp服务器，或者是自建的云盘,如果是国外的vps，你还可以自建一个梯子，连接外面的世界。 一台物理服务器，">
+<meta property="og:image" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/pics/commands.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/pics/bootup.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/pics/network.png">
+<meta property="og:updated_time" content="2018-02-06T17:08:09.732Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="虚拟化工具Vagrant简明使用教程简单介绍如果你有一台物理服务器，现在需要租出去，你会怎么做呢？直接出租出去？当然是变成多台，然后分别出租出去呀，怎么做呢？答案是：虚拟化！ 早年服务器的租用费用很高，而现在，一台云服务器，学生都可以以白菜价拥有了，当你拥有自己的VPS，可以在上面搭建网站，ftp服务器，或者是自建的云盘,如果是国外的vps，你还可以自建一个梯子，连接外面的世界。 一台物理服务器，">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/pics/commands.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T10:50:16+08:00">2018-03-05</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="虚拟化工具Vagrant简明使用教程"><a href="#虚拟化工具Vagrant简明使用教程" class="headerlink" title="虚拟化工具Vagrant简明使用教程"></a>虚拟化工具Vagrant简明使用教程</h1><h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>如果你有一台物理服务器，现在需要租出去，你会怎么做呢？直接出租出去？当然是变成多台，然后分别出租出去呀，怎么做呢？答案是：虚拟化！</p>
+<p>早年服务器的租用费用很高，而现在，一台云服务器，学生都可以以白菜价拥有了，当你拥有自己的VPS，可以在上面搭建网站，ftp服务器，或者是自建的云盘,如果是国外的vps，你还可以自建一个梯子，连接外面的世界。</p>
+<p>一台物理服务器，通常配置比较高，一个16核32线程的服务器，可以开31台云服务器（如果是docker这种轻量级服务器，可以运行的更多），依靠的是虚拟化技术，这些云服务器，实际是运行在物理服务器上的虚拟机。但是这些虚拟机都要一个一个的安装吗？这样做效率很低，于是便有了容器编排工具，例如vagrant</p>
+<blockquote>
+<p>Vagrant是一个基于Ruby的工具，用于创建和部署虚拟化开发环境。它使用Oracle的开源VirtualBox虚拟化系统，使用 Chef创建自动化虚拟环境 (来自百度百科)</p>
+</blockquote>
+<p>vagrant 不仅用于服务器领域，也可以用在个人的学习，测试环境中，安装和启动比直接安装快得多。比如，你先搭建一个网站开发环境，可以去官网找到别人打包好的镜像，直接使用别人分享的成果，或者想做测试，又怕改变本机的环境，可以提供一个隔离的环境。下面做一个简单的介绍,详细教程可以查看官方文档：<a href="https://www.vagrantup.com/docs/index.html" target="_blank" rel="noopener">vagrant docs</a></p>
+<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>vagrant是全平台的，但它的使用需要结合虚拟机管理，最常用的是开源的virtualbox，因此需要安装vagrant和virtualbox</p>
+<h3 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2.常用命令"></a>2.常用命令</h3><p><img src="./pics/commands.png" alt="commands"><br>vagrant命令都是以vagrant 开头的，在终端中输入vagrant -h 可以看到常用的一些命令，如果想查看具体的命令，可以在子命令下加-h参数，例如vagrant box -h 或 vagrant box add -h，可以找到与box镜像操作相关的使用帮助。</p>
+<h3 id="3-导入一个base-box"><a href="#3-导入一个base-box" class="headerlink" title="3.导入一个base box"></a>3.导入一个base box</h3><p>vagrant 并不是虚拟机，它是一种与虚拟机结合起来用的编排工具，本身也不生产系统镜像，vagrant使用的镜像被称为base box，可以在vagrant官网上找到，也可以在github上找到。导入一个box的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add &#123;name&#125; &#123;url&#125;</span><br><span class="line">vagrant init &#123;name&#125; #导入box并生成Vagrantfile文件</span><br></pre></td></tr></table></figure></p>
+<p>box镜像在亚马逊的服务器上，因此在国内，直接添加可能会非常慢，可以先下载离线镜像，然后在导入，离线下载方法：</p>
+<blockquote>
+<p>url + versions/版本号/ ＋ /providers/virtualbox.box</p>
+</blockquote>
+<p>eg:<br><em><a href="https://app.vagrantup.com/ubuntu/boxes/xenial64/versions/20180126.0.0/providers/virtualbox.box" target="_blank" rel="noopener">https://app.vagrantup.com/ubuntu/boxes/xenial64/versions/20180126.0.0/providers/virtualbox.box</a></em><br>导入离线镜像到仓库时，url为box文件的路径<br>vagrant box add /path/to/your/box<br>直接添加离线box时，会元数据，因此版本号会变成0，可以通过json文件添加box,如下：</p>
+<p>eg:可以将ubuntu/trusty64.json文件与ubuntu/trusty64.box文件放在同一个文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;description&quot;:&quot;This box is an image of Ubuntu Server 14.04 LTS 64-bit.&quot;,</span><br><span class="line">	&quot;short_description&quot;: &quot;envimation/ubuntu-server-trusty64&quot;,</span><br><span class="line">	&quot;name&quot;: &quot;ubuntu/trusty64.box&quot;,</span><br><span class="line">	&quot;versions&quot;: [&#123;</span><br><span class="line">		&quot;version&quot;:&quot;1.0.0-1502068394&quot;,</span><br><span class="line">		&quot;status&quot;: &quot;active&quot;,</span><br><span class="line">		&quot;providers&quot;: [&#123;</span><br><span class="line">			&quot;name&quot;:&quot;virtualbox&quot;,</span><br><span class="line">			&quot;url&quot;:&quot;./ubuntu/trusty64.box&quot;</span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>vagrant box add ubuntu/trusty64.json</code></p>
+<p>查看已添加的box: <code>vagrant box list</code></p>
+<p>Windows上默认box仓库在C盘用户文件夹的”.vagrant.d”中，如果C盘不够，可以通过设置环境变量’    VAGRANT_HOME’，改变此文件夹的位置</p>
+<h3 id="4-启动并设置虚拟机"><a href="#4-启动并设置虚拟机" class="headerlink" title="4.启动并设置虚拟机"></a>4.启动并设置虚拟机</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant init title #eg: vagrant init ubuntu/trusty64</span><br><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
+<p><img src="./pics/bootup.png" alt=""></p>
+<p>vagrant init 会生成Vagrantfile文件，可以编辑Vagrantfile文件，对虚拟机进行一些自定义设置，Vagrantfile是ruby脚本，但没学过ruby也可以无压力看懂。<br>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># -*- mode: ruby -*-</span><br><span class="line"># vi: set ft=ruby :</span><br><span class="line"></span><br><span class="line"># Vagrantfile API/syntax version. Don&apos;t touch unless you know what you&apos;re doing!</span><br><span class="line">VAGRANTFILE_API_VERSION = &quot;2&quot;</span><br><span class="line"></span><br><span class="line"># Installation script</span><br><span class="line">$script = &lt;&lt;SCRIPT</span><br><span class="line">echo Provisioning system ...</span><br><span class="line">apt-get install cowsay unzip</span><br><span class="line">rm /usr/share/cowsay/cows/*odo*</span><br><span class="line">SCRIPT</span><br><span class="line"></span><br><span class="line">Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|</span><br><span class="line">  config.vm.box = &quot;ubuntu/trusty64&quot;</span><br><span class="line">  config.vm.provision &quot;shell&quot;, inline: $script</span><br><span class="line">  config.vm.box_check_update = false</span><br><span class="line">  config.vm.network &quot;private_network&quot;, ip: &quot;172.2.10.5&quot;</span><br><span class="line">  config.vm.hostname = &quot;vagrant-ubuntu-trusty-64&quot;</span><br><span class="line"> #config.ssh.username = &quot;vagrant&quot;</span><br><span class="line"> #config.ssh.password = &quot;vagrant&quot; </span><br><span class="line">  config.vm.synced_folder &quot;./Shell-data&quot;, &quot;/vagrant_data&quot; #share_dir</span><br><span class="line"></span><br><span class="line">  config.vm.provider &quot;virtualbox&quot; do |vb|</span><br><span class="line">    vb.memory = &quot;1024&quot;</span><br><span class="line">    vb.cpus = 1</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h4 id="每一部分的含义"><a href="#每一部分的含义" class="headerlink" title="每一部分的含义"></a>每一部分的含义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Installation script</span><br><span class="line">$script = &lt;&lt;SCRIPT</span><br><span class="line">echo Provisioning system ...</span><br><span class="line">apt-get install cowsay unzip</span><br><span class="line">rm /usr/share/cowsay/cows/*odo*</span><br><span class="line">SCRIPT</span><br></pre></td></tr></table></figure>
+<p>以上是provision的内容，定义了在第一次启动时，虚拟机执行的操作，可以进行一些自动化部署</p>
+<p><code>config.vm.network</code> 设定网络，有三种，private_network(对应虚拟机Host only),public_network(对应虚拟机桥接模式，需要指定桥接的网卡，ip地址和子网掩码),forwarded_port,把主机上x端口的请求，发送到虚拟机Y端口上处理<br>下图是ifconfig查看的网络情况，eth0 是NAT模式（vagrant设置的，必要的，用于连接网络），eth1是私有网络（host only）为手动设置的<br><img src="./pics/network.png" alt=""></p>
+<p><code>hostname</code> 虚拟机中的主机名称（终端上显示的名称），是区分多台虚拟机的重要方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">config.ssh.username = &quot;vagrant&quot;</span><br><span class="line">config.ssh.password = &quot;vagrant&quot;</span><br></pre></td></tr></table></figure>
+<p>ssh登录方式，可以使用 用户名和密码登录，也可以使用公钥对登录，默认使用公钥对登录，默认用户名和密码都是”vagrant”</p>
+<p><code>config.vm.synced_folder</code><br>共享文件夹，用于快速在虚拟机和主机之间传送数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vb.memory = &quot;1024&quot;</span><br><span class="line">vb.cpus = 1</span><br></pre></td></tr></table></figure>
+<p>设定虚拟机的内存和核心数<br>如遇到虚拟机中的Virtualbox guest additions与Virtualbox中的不匹配会有如下提示：</p>
+<blockquote>
+<p><em>The guest additions on this VM do not match the install version of VirtualBox! This may cause things such as forwarded ports, shared folders, and more to not work properly. If any of those things fail on this machine, please update the guest additions and repackage the box.</em></p>
+</blockquote>
+<p>可以通过安装vbguest插件来解决，下次启动时会自动安装新的插件<br><code>vagrant plugin install vagrant-vbguest</code></p>
+<h3 id="5-登录虚拟机"><a href="#5-登录虚拟机" class="headerlink" title="5.登录虚拟机"></a>5.登录虚拟机</h3><p>base box多数是没有图形界面的（程序员要啥图形界面 [滑稽脸]），virtualbox的界面太难用，因此选择用ssh连接，vagrant有自带的ssh工具，<code>vagrant ssh</code>,会根据自动生成的密钥对直接登录进入系统，<code>vagrant ssh-config</code> 可以查看ssh的配置。<br>Windows上没有ssh客户端，可以选择git bash，或者openssh(windows上，对公钥对的权限有严格要求，有时会导致无法登录，优点是集成到cmd或powershell，但不推荐)，也可以使用xshell,putty等工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh </span><br><span class="line">ssh username@&#123;ip&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-查看状态，挂起，关机"><a href="#6-查看状态，挂起，关机" class="headerlink" title="6. 查看状态，挂起，关机"></a>6. 查看状态，挂起，关机</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vagrant status #查看状态</span><br><span class="line">vagrant suspend #挂起</span><br><span class="line">vagrant halt #关机</span><br></pre></td></tr></table></figure>
+<h3 id="7-销毁和移除box"><a href="#7-销毁和移除box" class="headerlink" title="7. 销毁和移除box"></a>7. 销毁和移除box</h3><p><code>vagrant destroy</code> 这个命令会删除virtualbox创建的虚拟机但不会移除仓库中的box 文件，移除box用 <code>vagrant box remove box-name</code></p>
+<h3 id="8-导出镜像"><a href="#8-导出镜像" class="headerlink" title="8.导出镜像"></a>8.导出镜像</h3><p>当你在虚拟机中做了许多工作后，你可以导出镜像，分享给其他人使用，也可以留存自己使用，节省下次配置的时间。<br>private_network 需要清除一下网络状态：<code>sudo rm -f /etc/udev/rule.d/70-persistent-net.rules</code></p>
+<p><code>vagrant halt</code> 先关机<br>在工程文件夹下（对应的Vagrantfile所在文件夹）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant status #查看状态</span><br><span class="line">vagrant package --output your-box-name.box</span><br></pre></td></tr></table></figure></p>
+<p>详细信息请查看 <a href="https://www.vagrantup.com/docs/boxes/base.html" target="_blank" rel="noopener">Creating a Base Box</a></p>
+<h3 id="9-同时启动多台虚拟机"><a href="#9-同时启动多台虚拟机" class="headerlink" title="9 同时启动多台虚拟机"></a>9 同时启动多台虚拟机</h3><blockquote>
+<p><strong>附上大神老师写的一次启动多台机器（可用于集群管理）的脚本</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># -*- mode: ruby -*-</span><br><span class="line"># vi: set ft=ruby :</span><br><span class="line"></span><br><span class="line">Vagrant.configure(&quot;2&quot;) do |config|</span><br><span class="line">  config.vm.box = &quot;ubuntu-xenial-docker&quot;</span><br><span class="line">  config.vm.box_version = &quot;1.0.0-1502068394&quot;</span><br><span class="line">  config.vm.box_check_update = false  </span><br><span class="line">  config.vm.provider &quot;virtualbox&quot; do |vb|</span><br><span class="line">    vb.memory = &quot;1024&quot;</span><br><span class="line">    vb.cpus = 1</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  ssh_key_public  = File.readlines(&quot;./insecure-key.pub&quot;).first.strip</span><br><span class="line">  config.vm.provision &apos;shell&apos;, inline: &quot;echo #&#123;ssh_key_public&#125; &gt;&gt; /home/vagrant/.ssh/authorized_keys&quot;</span><br><span class="line">  config.vm.provision &quot;file&quot;, source: &quot;./insecure-key&quot;, destination: &quot;/home/vagrant/.ssh/id_rsa&quot;</span><br><span class="line">  config.vm.provision &apos;shell&apos;, inline: &quot;chmod 400 /home/vagrant/.ssh/id_rsa&quot;</span><br><span class="line"></span><br><span class="line">  IP0 = 20</span><br><span class="line">  (1..3).each do |i|</span><br><span class="line">    config.vm.define &quot;node#&#123;i&#125;&quot; do |node|</span><br><span class="line">      node.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.#&#123;i + IP0&#125;&quot;</span><br><span class="line">      node.vm.hostname = &quot;node#&#123;i&#125;&quot;</span><br><span class="line">      node.vm.synced_folder &quot;./data&quot;, &quot;/vagrant_data&quot;, create: true, owner: &quot;root&quot;, group: &quot;root&quot;</span><br><span class="line">      node.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL</span><br><span class="line">        echo &quot;This is node#&#123;i&#125;&quot; &gt; /etc/motd</span><br><span class="line">      SHELL</span><br><span class="line">    end</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>希望对你有所帮助！</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/05/snort环境安装/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟化工具Vagrant简明使用教程"><span class="nav-number">1.</span> <span class="nav-text">虚拟化工具Vagrant简明使用教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单介绍"><span class="nav-number">1.1.</span> <span class="nav-text">简单介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用命令"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-导入一个base-box"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.导入一个base box</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-启动并设置虚拟机"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.启动并设置虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每一部分的含义"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">每一部分的含义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-登录虚拟机"><span class="nav-number">1.1.5.</span> <span class="nav-text">5.登录虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-查看状态，挂起，关机"><span class="nav-number">1.1.6.</span> <span class="nav-text">6. 查看状态，挂起，关机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-销毁和移除box"><span class="nav-number">1.1.7.</span> <span class="nav-text">7. 销毁和移除box</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-导出镜像"><span class="nav-number">1.1.8.</span> <span class="nav-text">8.导出镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-同时启动多台虚拟机"><span class="nav-number">1.1.9.</span> <span class="nav-text">9 同时启动多台虚拟机</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.5</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.5"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.5"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
