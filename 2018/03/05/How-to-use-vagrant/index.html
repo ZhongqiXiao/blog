@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '6.0.5',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -100,30 +100,32 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="虚拟化与云计算," />
 
 
 <meta name="description" content="虚拟化工具Vagrant简明使用教程简单介绍如果你有一台物理服务器，现在需要租出去，你会怎么做呢？直接出租出去？当然是变成多台，然后分别出租出去呀，怎么做呢？答案是：虚拟化！ 早年服务器的租用费用很高，而现在，一台云服务器，学生都可以以白菜价拥有了，当你拥有自己的VPS，可以在上面搭建网站，ftp服务器，或者是自建的云盘,如果是国外的vps，你还可以自建一个梯子，连接外面的世界。 一台物理服务器，">
+<meta name="keywords" content="虚拟化与云计算">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:title" content="虚拟化工具Vagrant简明使用教程">
+<meta property="og:url" content="http://zhongqixiao.github.io/2018/03/05/How-to-use-vagrant/index.html">
+<meta property="og:site_name" content="执笔画思念">
 <meta property="og:description" content="虚拟化工具Vagrant简明使用教程简单介绍如果你有一台物理服务器，现在需要租出去，你会怎么做呢？直接出租出去？当然是变成多台，然后分别出租出去呀，怎么做呢？答案是：虚拟化！ 早年服务器的租用费用很高，而现在，一台云服务器，学生都可以以白菜价拥有了，当你拥有自己的VPS，可以在上面搭建网站，ftp服务器，或者是自建的云盘,如果是国外的vps，你还可以自建一个梯子，连接外面的世界。 一台物理服务器，">
-<meta property="og:image" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/pics/commands.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/pics/bootup.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/pics/network.png">
-<meta property="og:updated_time" content="2018-02-06T17:08:09.732Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhongqixiao.github.io/2018/03/05/How-to-use-vagrant/commands.png">
+<meta property="og:image" content="http://zhongqixiao.github.io/2018/03/05/How-to-use-vagrant/bootup.png">
+<meta property="og:image" content="http://zhongqixiao.github.io/2018/03/05/How-to-use-vagrant/network.png">
+<meta property="og:updated_time" content="2018-03-05T06:49:26.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="虚拟化工具Vagrant简明使用教程">
 <meta name="twitter:description" content="虚拟化工具Vagrant简明使用教程简单介绍如果你有一台物理服务器，现在需要租出去，你会怎么做呢？直接出租出去？当然是变成多台，然后分别出租出去呀，怎么做呢？答案是：虚拟化！ 早年服务器的租用费用很高，而现在，一台云服务器，学生都可以以白菜价拥有了，当你拥有自己的VPS，可以在上面搭建网站，ftp服务器，或者是自建的云盘,如果是国外的vps，你还可以自建一个梯子，连接外面的世界。 一台物理服务器，">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/pics/commands.png">
+<meta name="twitter:image" content="http://zhongqixiao.github.io/2018/03/05/How-to-use-vagrant/commands.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/"/>
+  <link rel="canonical" href="http://zhongqixiao.github.io/2018/03/05/How-to-use-vagrant/"/>
 
 
 
@@ -132,7 +134,7 @@
     sidebar: "",
   };
 </script>
-  <title> | Hexo</title>
+  <title>虚拟化工具Vagrant简明使用教程 | 执笔画思念</title>
   
 
 
@@ -172,7 +174,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -190,12 +192,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">执笔画思念</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">没有什么所谓正确的选择，我们只不过是要努力奋斗，使当初的选择变得正确</p>
       
   </div>
 
@@ -217,13 +219,37 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
         </li>
       
 
@@ -243,6 +269,17 @@
     </header>
 
     
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/ZhongqiXiao" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
 
 
     <main id="main" class="main">
@@ -267,16 +304,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/虚拟化工具Vagrant简明使用教程/">
+    <link itemprop="mainEntityOfPage" href="http://zhongqixiao.github.io/2018/03/05/How-to-use-vagrant/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="肖中奇">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="执笔画思念">
     </span>
 
     
@@ -284,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">虚拟化工具Vagrant简明使用教程</h1>
         
 
         <div class="post-meta">
@@ -294,9 +331,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T10:50:16+08:00">2018-03-05</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-05T10:00:00+08:00">2018-03-05</time>
             
 
             
@@ -341,7 +378,7 @@
 </blockquote>
 <p>vagrant 不仅用于服务器领域，也可以用在个人的学习，测试环境中，安装和启动比直接安装快得多。比如，你先搭建一个网站开发环境，可以去官网找到别人打包好的镜像，直接使用别人分享的成果，或者想做测试，又怕改变本机的环境，可以提供一个隔离的环境。下面做一个简单的介绍,详细教程可以查看官方文档：<a href="https://www.vagrantup.com/docs/index.html" target="_blank" rel="noopener">vagrant docs</a></p>
 <h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>vagrant是全平台的，但它的使用需要结合虚拟机管理，最常用的是开源的virtualbox，因此需要安装vagrant和virtualbox</p>
-<h3 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2.常用命令"></a>2.常用命令</h3><p><img src="./pics/commands.png" alt="commands"><br>vagrant命令都是以vagrant 开头的，在终端中输入vagrant -h 可以看到常用的一些命令，如果想查看具体的命令，可以在子命令下加-h参数，例如vagrant box -h 或 vagrant box add -h，可以找到与box镜像操作相关的使用帮助。</p>
+<h3 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2.常用命令"></a>2.常用命令</h3><p><img src="/2018/03/05/How-to-use-vagrant/commands.png" alt="commands"><br>vagrant命令都是以vagrant 开头的，在终端中输入vagrant -h 可以看到常用的一些命令，如果想查看具体的命令，可以在子命令下加-h参数，例如vagrant box -h 或 vagrant box add -h，可以找到与box镜像操作相关的使用帮助。</p>
 <h3 id="3-导入一个base-box"><a href="#3-导入一个base-box" class="headerlink" title="3.导入一个base box"></a>3.导入一个base box</h3><p>vagrant 并不是虚拟机，它是一种与虚拟机结合起来用的编排工具，本身也不生产系统镜像，vagrant使用的镜像被称为base box，可以在vagrant官网上找到，也可以在github上找到。导入一个box的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add &#123;name&#125; &#123;url&#125;</span><br><span class="line">vagrant init &#123;name&#125; #导入box并生成Vagrantfile文件</span><br></pre></td></tr></table></figure></p>
 <p>box镜像在亚马逊的服务器上，因此在国内，直接添加可能会非常慢，可以先下载离线镜像，然后在导入，离线下载方法：</p>
 <blockquote>
@@ -354,12 +391,12 @@
 <p>查看已添加的box: <code>vagrant box list</code></p>
 <p>Windows上默认box仓库在C盘用户文件夹的”.vagrant.d”中，如果C盘不够，可以通过设置环境变量’    VAGRANT_HOME’，改变此文件夹的位置</p>
 <h3 id="4-启动并设置虚拟机"><a href="#4-启动并设置虚拟机" class="headerlink" title="4.启动并设置虚拟机"></a>4.启动并设置虚拟机</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant init title #eg: vagrant init ubuntu/trusty64</span><br><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
-<p><img src="./pics/bootup.png" alt=""></p>
+<p><img src="/2018/03/05/How-to-use-vagrant/bootup.png" alt=""></p>
 <p>vagrant init 会生成Vagrantfile文件，可以编辑Vagrantfile文件，对虚拟机进行一些自定义设置，Vagrantfile是ruby脚本，但没学过ruby也可以无压力看懂。<br>eg:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># -*- mode: ruby -*-</span><br><span class="line"># vi: set ft=ruby :</span><br><span class="line"></span><br><span class="line"># Vagrantfile API/syntax version. Don&apos;t touch unless you know what you&apos;re doing!</span><br><span class="line">VAGRANTFILE_API_VERSION = &quot;2&quot;</span><br><span class="line"></span><br><span class="line"># Installation script</span><br><span class="line">$script = &lt;&lt;SCRIPT</span><br><span class="line">echo Provisioning system ...</span><br><span class="line">apt-get install cowsay unzip</span><br><span class="line">rm /usr/share/cowsay/cows/*odo*</span><br><span class="line">SCRIPT</span><br><span class="line"></span><br><span class="line">Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|</span><br><span class="line">  config.vm.box = &quot;ubuntu/trusty64&quot;</span><br><span class="line">  config.vm.provision &quot;shell&quot;, inline: $script</span><br><span class="line">  config.vm.box_check_update = false</span><br><span class="line">  config.vm.network &quot;private_network&quot;, ip: &quot;172.2.10.5&quot;</span><br><span class="line">  config.vm.hostname = &quot;vagrant-ubuntu-trusty-64&quot;</span><br><span class="line"> #config.ssh.username = &quot;vagrant&quot;</span><br><span class="line"> #config.ssh.password = &quot;vagrant&quot; </span><br><span class="line">  config.vm.synced_folder &quot;./Shell-data&quot;, &quot;/vagrant_data&quot; #share_dir</span><br><span class="line"></span><br><span class="line">  config.vm.provider &quot;virtualbox&quot; do |vb|</span><br><span class="line">    vb.memory = &quot;1024&quot;</span><br><span class="line">    vb.cpus = 1</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <h4 id="每一部分的含义"><a href="#每一部分的含义" class="headerlink" title="每一部分的含义"></a>每一部分的含义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Installation script</span><br><span class="line">$script = &lt;&lt;SCRIPT</span><br><span class="line">echo Provisioning system ...</span><br><span class="line">apt-get install cowsay unzip</span><br><span class="line">rm /usr/share/cowsay/cows/*odo*</span><br><span class="line">SCRIPT</span><br></pre></td></tr></table></figure>
 <p>以上是provision的内容，定义了在第一次启动时，虚拟机执行的操作，可以进行一些自动化部署</p>
-<p><code>config.vm.network</code> 设定网络，有三种，private_network(对应虚拟机Host only),public_network(对应虚拟机桥接模式，需要指定桥接的网卡，ip地址和子网掩码),forwarded_port,把主机上x端口的请求，发送到虚拟机Y端口上处理<br>下图是ifconfig查看的网络情况，eth0 是NAT模式（vagrant设置的，必要的，用于连接网络），eth1是私有网络（host only）为手动设置的<br><img src="./pics/network.png" alt=""></p>
+<p><code>config.vm.network</code> 设定网络，有三种，private_network(对应虚拟机Host only),public_network(对应虚拟机桥接模式，需要指定桥接的网卡，ip地址和子网掩码),forwarded_port,把主机上x端口的请求，发送到虚拟机Y端口上处理<br>下图是ifconfig查看的网络情况，eth0 是NAT模式（vagrant设置的，必要的，用于连接网络），eth1是私有网络（host only）为手动设置的<br><img src="/2018/03/05/How-to-use-vagrant/network.png" alt=""></p>
 <p><code>hostname</code> 虚拟机中的主机名称（终端上显示的名称），是区分多台虚拟机的重要方式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">config.ssh.username = &quot;vagrant&quot;</span><br><span class="line">config.ssh.password = &quot;vagrant&quot;</span><br></pre></td></tr></table></figure>
 <p>ssh登录方式，可以使用 用户名和密码登录，也可以使用公钥对登录，默认使用公钥对登录，默认用户名和密码都是”vagrant”</p>
@@ -398,6 +435,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/虚拟化与云计算/" rel="tag"># 虚拟化与云计算</a>
+          
+        </div>
+      
 
       
       
@@ -407,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/05/snort环境安装/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/03/05/How-to-build-firewall-with-vagrant/" rel="next" title="防火墙环境搭建">
+                <i class="fa fa-chevron-left"></i> 防火墙环境搭建
               </a>
             
           </div>
@@ -416,6 +459,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/05/How-to-build-Windows-FTP-server/" rel="prev" title="Windows上ftp服务器的搭建">
+                Windows上ftp服务器的搭建 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -466,10 +513,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -478,8 +525,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="肖中奇" />
+            
+              <p class="site-author-name" itemprop="name">肖中奇</p>
+              <p class="site-description motion-element" itemprop="description">技术是第一生产力</p>
           </div>
 
           
@@ -487,10 +538,10 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives">
                 
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -498,11 +549,49 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
             </nav>
           
 
           
 
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZhongqiXiao" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/zhongqi615" target="_blank" title="微博"><i class="fa fa-fw fa-globe"></i>微博</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/xzq94" target="_blank" title="知乎"><i class="fa fa-fw fa-globe"></i>知乎</a>
+                  
+                </span>
+              
+            </div>
           
 
           
@@ -553,7 +642,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">肖中奇</span>
 
   
 
@@ -563,7 +652,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -571,7 +660,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.5</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.5</div>
 
 
 
@@ -660,6 +749,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.5"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
